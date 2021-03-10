@@ -43,30 +43,28 @@ h1 {
     font-style: italic;
 }
 
+.index_container {
+    height: 1000px
+}
+
 .centered_left {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    background-color: #272727;
     text-align: center;
     font-family: "Courier New", "Lucidia Console", Helvetica;
   }
 
-  .centered_right {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.centered_right {
+    background-color: #145aa0;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-  }
+}
 
-  .centered_left img {
+.centered_left img {
     width: 300px;
-    border-radius: 50%;
-  }
+    border-radius: 100%;
+}
 
-  .centered_right img {
+.centered_right img {
     width: 300px;
-    border-radius: 50%;
-  }
+    border-radius: 100%;
+}
