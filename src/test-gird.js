@@ -12,13 +12,13 @@ class TestGrid extends Component {
                     <Grid item xs={6}>
                         <div className="centered_left" justify="space-evenly" alignItems="center">
                             <img src={prog_img} alt="An extremely good looking man sitting in front of a keyboard looking very smart and good at programming"/>
-                            <p>Hi.</p>
+                            <p>The Programmer</p>
                         </div>
                     </Grid>
                     <Grid item xs={6}>
                         <div className="centered_right">
-                            <img src={voice_img} alt="An extremely good looking man sitting in front of a keyboard looking very smart and good at programming"/>
-                            <p> Hello</p>
+                            <img src={voice_img} alt="An extremely good looking man passionatly and animatedly speaking voice lines into a mic"/>
+                            <h1>The Voice Actor</h1>
                         </div>
                     </Grid>
                 </Grid>
@@ -28,7 +28,7 @@ class TestGrid extends Component {
 }
 const styles = theme => ({
     container: {
-        padding: theme.spacing.unit
+        width: '800px'
     }
 })
 export default withStyles(styles)(TestGrid)
