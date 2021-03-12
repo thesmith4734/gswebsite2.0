@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SplitTheScreen from './splitscreen';
+import SplitScreenParent from './splitscreen-parent';
 // import MessageList from './message-list';
 // import TestGrid from './test-gird';
 
@@ -10,7 +10,7 @@ class App extends Component {
 
     render() {
         return (
-            <SplitTheScreen />
+            <SplitScreenParent />
         )
     }
 }
