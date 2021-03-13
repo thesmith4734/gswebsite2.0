@@ -13,23 +13,62 @@ const styles = theme => ({
 });
 
 class SplitScreenParent extends Component {
-    constructor () {
-        super()
-
-        this.state = {
-            hover: false,
-            text: "Initial Text"
-        }
-
-        this.updateText1 = this.updateText1
+    constructor(props) {
+        super(props);
+        this.handleLeftTextChange = this.handleLeftTextChange.bind(this);
+        this.handleRightTextChange = this.handleRightTextChange.bind(this);
+        this.handleRightHovered = this.handleRightHovered.bind(this);
+        this.handleRightNotHovered = this.handleRightNotHovered.bind(this);
+        this.handleLeftHovered = this.handleLeftHovered.bind(this);
+        this.handleLeftNotHovered = this.handleLeftNotHovered.bind(this);
+        this.state = {text: 'Initial', rightHover: false, leftHover: false};
     }
-    updateText1 = (text) => {this.setState({ text})}
+
+    handleLeftTextChange(text) {
+        this.setState({leftText: text})
+    }
+
+    handleRightTextChange(text) {
+        this.setState({rightText: text})
+    }
+
+    handleRightHovered() {
+        this.setState({rightHover: true})
+    }
+
+    handleRightNotHovered() {
+        this.setState({rightHover: false})
+    }
+
+    handleLeftHovered() {
+        this.setState({leftHover: true})
+    }
+
+    handleLeftNotHovered() {
+        this.setState({leftHover: false})
+    }
+
+
     render() {
+        const leftText = this.state.leftText;
+        const rightText = this.state.rightText;
+        const rightHover = this.state.rightHover;
+        const leftHover = this.state.leftHover;
         const classes = this.props.classes;
         return (
             <div className={classes.splitScreen}>
-                <p>{this.state.text}</p>
-                <SplitScreenLeft updateTextCB={this.updateText1} />
+                <SplitScreenLeft 
+                leftText = { leftText }
+                rightHover = { rightHover }
+                onRightTextChange={this.handleRightTextChange}
+                onLeftHovered={this.handleLeftHovered}
+                onLeftNotHovered={this.handleLeftNotHovered}/>
+                <SplitScreenRight 
+                rightText = { rightText }
+                leftHover = { leftHover }
+                onLeftTextChange={this.handleLeftTextChange}
+                onRightHovered={this.handleRightHovered}
+                onRightNotHovered={this.handleRightNotHovered}/>
             </div>
         )
     }
