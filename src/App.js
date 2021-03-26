@@ -5,7 +5,7 @@ Route,
 Link } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 import MyTheme from './MyTheme';
-import SplitScreenParent from './splitscreen-parent';
+import SplitScreenParent from './components/splitscreen-parent';
 import ProgrammerPage from './programmer-page';
 
 import './App.css';

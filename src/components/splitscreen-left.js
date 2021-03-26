@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
-import prog_img from './assets/the_programmer.jpg'
+import prog_img from '../assets/the_programmer.jpg'
 import { Grid } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 

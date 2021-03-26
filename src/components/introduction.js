@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, CardMedia } from '@material-ui/core';
-import prog_img from '../assets/the_programmer.jpg'
+import { Grid, Card, CardContent, CardMedia } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import Image from './image';
+import prog_img from '../assets/the_programmer.jpg';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -9,52 +11,62 @@ const useStyles = makeStyles((theme) => ({
         margin: '0',
         padding: '0',
         width: '100%',
-        height: '10%',
+        height: '600px',
         position: 'relative',
+        display: 'flex',
+        justifyContent: 'center'
     },
     grid: {
+        width: '100%',
+        height: '100%'
+    },
+    card: {
+        marginTop: '30px',
         width: '90%',
+        height: '90%',
+        backgroundColor: theme.palette.secondary.main,
+    },
+    gridimage: {
+        width: '100%',
         height: '100%',
-        margin: '0',
-        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        textAlign: 'center',
     },
-    paper: {
-        padding: theme.spacing(2),
-        background: theme.palette.secondary.main
+    gridtext: {
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: theme.spacing(3),
     },
-    photo: {
+    image: {
+        backgroundImage: `url(${prog_img})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: theme.palette.primary.main,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         height: '100%',
         width: '100%',
-        paddingTop: '75%', // 16:9
-        borderRadius: '10%'
     },
-    h1: {
-        textAlign: "center"
-    }
 }));
 
 export default function Introduction() {
     const classes = useStyles();
     return (
         <div className={classes.background}>
-            <Grid
-            container
-            spacing={0}
-            align = "center"
-            justify = "center"
-            alignItems = "center"
-            className={classes.grid}>
-                <Grid item xs={6}>
-                    <CardMedia image={prog_img} className={classes.photo}/>
+            <Card className={classes.card}>
+                <Grid  container className={classes.grid}>
+                    <Grid item md={6} xs={6} className={classes.gridimage}>
+                        <div className={classes.image} />
+                    </Grid>
+                    <Grid container direction="column" item md={6} xs={6} className={classes.gridtext}>
+                        <Typography variant="h1" gutterBottom>Hello!</Typography>
+                        <Typography varient="h5" paragraph>Welcome to my collection of projects. I am a Python Developer of 3 years with a wide variety of knowledge. From web development to chatbots to various automated scripting, I am hard at work learning how to do anything Python so that you don't have to.</Typography>
+                    </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                    <Paper elevation={3} className={classes.paper}>
-                        <h1 className={classes.h1}>Hello! Welcome to my collection of Projects.</h1>
-                        <h2 className={classes.h1}>I am a Python Developer of 3 years with a wide variety of knowledge. From web development to chatbots to various automated scripting, I have hard at work learning how to do anything Python so that you don't have to!</h2>
-                    </Paper>
-                </Grid>
-                
-            </Grid>
+            </Card>
         </div>
     )
 }

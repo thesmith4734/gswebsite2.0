@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
-import voice_img from './assets/the_voice_actor.jpg';
+import voice_img from '../assets/the_voice_actor.jpg';
 import { Grid } from '@material-ui/core';
 
 
