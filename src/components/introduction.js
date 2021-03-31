@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Card, CardContent, CardMedia } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import Image from './image';
 import prog_img from '../assets/the_programmer.jpg';
 
 
@@ -11,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
         margin: '0',
         padding: '0',
         width: '100%',
-        height: '600px',
         position: 'relative',
         display: 'flex',
         justifyContent: 'center'
@@ -21,9 +19,10 @@ const useStyles = makeStyles((theme) => ({
         height: '100%'
     },
     card: {
-        marginTop: '30px',
+        marginBottom: theme.spacing(7),
+        marginTop: theme.spacing(7),
         width: '90%',
-        height: '90%',
+        height: '540px',
         backgroundColor: theme.palette.secondary.main,
     },
     gridimage: {
