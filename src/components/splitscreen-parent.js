@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { withStyles } from "@material-ui/core/styles";
-import SplitScreenLeft from "./splitscreen-left"
-import SplitScreenRight from "./splitscreen-right"
+import React, { useState } from 'react';
+import { makeStyles } from "@material-ui/core/styles";
+import SplitScreenLeft from "./splitscreen-left";
+import SplitScreenRight from "./splitscreen-right";
 
-const styles = theme => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         flex: '1',
         height: '100vh'
@@ -17,53 +17,41 @@ const styles = theme => ({
         width: '100%',
         height: '100%'
     }
-});
+}));
 
-class SplitScreenParent extends Component {
-    constructor(props) {
-        super(props);
-        this.handleRightHovered = this.handleRightHovered.bind(this);
-        this.handleRightNotHovered = this.handleRightNotHovered.bind(this);
-        this.handleLeftHovered = this.handleLeftHovered.bind(this);
-        this.handleLeftNotHovered = this.handleLeftNotHovered.bind(this);
-        this.state = {rightHover: false, leftHover: false};
-    }
+export default function SplitscreenParent() {
+    const classes = useStyles();
+    const [rightHover, setRightHover] = useState(false);
+    const [leftHover, setLeftHover] = useState(false);
 
-    handleRightHovered() {
-        this.setState({rightHover: true})
-    }
+    const handleRightHovered = event => {
+        setRightHover(true);
+    };
 
-    handleRightNotHovered() {
-        this.setState({rightHover: false})
-    }
+    const handleRightNotHovered = event => {
+        setRightHover(false);
+    };
 
-    handleLeftHovered() {
-        this.setState({leftHover: true})
-    }
+    const handleLeftHovered = event => {
+        setLeftHover(true);
+    };
 
-    handleLeftNotHovered() {
-        this.setState({leftHover: false})
-    }
+    const handleLeftNotHovered = event => {
+        setLeftHover(false);
+    };
 
-    render() {
-        const rightHover = this.state.rightHover;
-        const leftHover = this.state.leftHover;
-        const classes = this.props.classes;
-        return (
-            <div className={classes.root}>
-                <div className={classes.splitScreen}>
-                    <SplitScreenLeft 
-                    rightHover = { rightHover }
-                    onLeftHovered={this.handleLeftHovered}
-                    onLeftNotHovered={this.handleLeftNotHovered}/>
-                    <SplitScreenRight 
-                    leftHover = { leftHover }
-                    onRightHovered={this.handleRightHovered}
-                    onRightNotHovered={this.handleRightNotHovered}/>
-                </div>
+    return (
+        <div className={classes.root}>
+            <div className={classes.splitScreen}>
+                <SplitScreenLeft 
+                rightHover = { rightHover }
+                onLeftHovered={ handleLeftHovered }
+                onLeftNotHovered={ handleLeftNotHovered }/>
+                <SplitScreenRight 
+                leftHover = { leftHover }
+                onRightHovered={ handleRightHovered }
+                onRightNotHovered={ handleRightNotHovered }/>
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-export default withStyles(styles)(SplitScreenParent);

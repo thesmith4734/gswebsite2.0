@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { makeStyles } from "@material-ui/core/styles";
 import voice_img from '../assets/the_voice_actor.jpg';
 import { Grid } from '@material-ui/core';
 
 
-const styles = theme => ({
+const useStyles = makeStyles((theme) => ({
     rightPane: {
-        backgroundColor: '#145aa0',
+        backgroundColor: theme.palette.primary.main,
         width: '50%',
         height: '100%',
         margin: '0',
@@ -14,13 +14,13 @@ const styles = theme => ({
         position: 'relative'
     },
     rightPaneHovered: {
-        backgroundColor: '#145aa0',
+        backgroundColor: theme.palette.primary.main,
         width: '50%',
         height: '100%',
         margin: '0',
         padding: '0',
         position: 'relative',
-        background: "linear-gradient(to left, #145aa0, #272727);",
+        background: `linear-gradient(to left, ${theme.palette.primary.main}, ${theme.palette.secondary.main});`,
         cursor: 'pointer'
     },
     rightPhoto: {
@@ -36,7 +36,7 @@ const styles = theme => ({
     rightText: {
         position: 'absolute',
         textAlign: 'center',
-        color: '#272727',
+        color: theme.palette.text.primary,
         bottom: '10%',
         left: '0',
         right:'0',
@@ -45,46 +45,34 @@ const styles = theme => ({
         borderRadius: '50%',
         fontSize: 'xxx-large'
     }
-});
+}));
 
-class SplitScreenRight extends Component {
-    constructor(props) {
-        super(props); 
-        this.updateHovered = this.updateHovered.bind(this)
-        this.updateNotHovered = this.updateNotHovered.bind(this)
-        this.state = {
-            leftHover: false
-        }
+export default function SplitscreenRight(props) {
+    const classes = useStyles();
+    const isHovered = props.leftHover;
+
+    function updateHovered() {
+        props.onRightHovered()
     }
 
-    updateHovered() {
-        this.props.onRightHovered()
+    function updateNotHovered() {
+        props.onRightNotHovered()
     }
 
-    updateNotHovered() {
-        this.props.onRightNotHovered()
-    }
-
-    render() {
-        const classes = this.props.classes;
-        const isHovered = this.props.leftHover;
-        return (
-            <Grid
-            container
-            spacing={0}
-            align="center"
-            justify="center" 
-            direction="column"
-            className={isHovered ? classes.rightPaneHovered : classes.rightPane}
-            onMouseEnter={this.updateHovered} 
-            onMouseLeave={this.updateNotHovered}>
-                <Grid item xs={12} align="center" justify="center">
-                    <img src={voice_img} alt="A stylish gentleman passionately practicing voice lines into a high quality microphone" className={classes.rightPhoto}/> 
-                    <h1 className={classes.rightText}>The Voice Actor</h1>
-                </Grid>
+    return (
+        <Grid
+        container
+        spacing={0}
+        align="center"
+        justify="center" 
+        direction="column"
+        className={isHovered ? classes.rightPaneHovered : classes.rightPane}
+        onMouseEnter={ updateHovered } 
+        onMouseLeave={ updateNotHovered }>
+            <Grid item xs={12} align="center" justify="center">
+                <img src={voice_img} alt="A stylish gentleman passionately practicing voice lines into a high quality microphone" className={classes.rightPhoto}/> 
+                <h1 className={classes.rightText}>The Voice Actor</h1>
             </Grid>
-        )
-    }
+        </Grid>
+    )
 }
-
-export default withStyles(styles)(SplitScreenRight)
