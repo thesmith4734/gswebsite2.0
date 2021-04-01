@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card, CardContent, CardMedia } from '@material-ui/core';
+import { Grid, Card, CardMedia } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import web_img from '../assets/website.jpg';
 
 const useStyles = makeStyles((theme) => ({
     showcard: {

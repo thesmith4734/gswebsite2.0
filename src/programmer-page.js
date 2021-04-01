@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { makeStyles } from "@material-ui/core/styles";
 import Divider from '@material-ui/core/Divider';
 import Introduction from "./components/introduction";
 import ProjectCarousel from "./components/project-carousel";

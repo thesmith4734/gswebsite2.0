@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card, CardContent, CardMedia } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import prog_img from '../assets/the_programmer.jpg';
 

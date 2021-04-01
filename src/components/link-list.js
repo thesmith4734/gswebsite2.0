@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
     },
     largeButton: {
-        padding: 12
+        padding: 12,
+        width: '50%'
     },
     largeIcon: {
         fontSize: "10em"

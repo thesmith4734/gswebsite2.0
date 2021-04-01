@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card, CardContent, CardMedia } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
 import Project from "./project";
 import Carousel from 'react-material-ui-carousel';
 import Divider from '@material-ui/core/Divider';
