@@ -5,6 +5,7 @@ import Introduction from "./components/introduction";
 import ProjectCarousel from "./components/project-carousel";
 import Title from "./components/title";
 import LinkList from "./components/link-list";
+import NavBar from './components/navbar'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +28,7 @@ export default function ProgrammerPage() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
+            <NavBar />
             <Introduction />
             <Divider variant="middle" />
             <Title item={projectTitle}/>
