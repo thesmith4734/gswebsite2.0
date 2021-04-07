@@ -62,7 +62,6 @@ export default function SplitScreenLeft(props) {
     }
 
     const handleClick = () => {
-        console.log('clicked');
         history.push('/the_programmer');
     }
 
