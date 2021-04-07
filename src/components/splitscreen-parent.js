@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import SplitScreenLeft from "./splitscreen-left";
 import SplitScreenRight from "./splitscreen-right";
+import NavBar from './navbar';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,6 +44,7 @@ export default function SplitscreenParent() {
 
     return (
         <div className={classes.root}>
+            <NavBar />
             <div className={classes.splitScreen}>
                 <SplitScreenLeft 
                 rightHover = { rightHover }
