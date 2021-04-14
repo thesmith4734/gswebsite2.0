@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import prog_img from '../assets/the_programmer.jpg'
 import { Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import { useHistory } from 'react-router-dom';
 
 
@@ -12,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
         height: '100%',
         margin: '0',
         padding: '0',
-        position: 'relative'
+        position: 'relative',
+        cursor: 'pointer'
     },
     leftPaneHovered: {
         backgroundColor: theme.palette.secondary.main,
@@ -22,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
         padding: '0',
         position: 'relative',
         background: `linear-gradient(to right, ${theme.palette.secondary.main}, ${theme.palette.primary.main});`,
-        cursor: 'pointer'
     },
     leftPhoto: {
         position: 'absolute',
@@ -38,13 +39,11 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         textAlign: 'center',
         color: theme.palette.text.primary,
-        bottom: '10%',
+        bottom: '9%',
         left: '0',
         right:'0',
         margin: 'auto',
         width: '50%',
-        borderRadius: '50%',
-        fontSize: 'xxx-large'
     }
 }));
 
@@ -78,7 +77,7 @@ export default function SplitScreenLeft(props) {
         onClick={ handleClick }>
             <Grid container item xs={12} align="center" justify="center">
                 <img src={prog_img} alt="An extremely good looking man sitting in front of a keyboard looking very smart and good at programming" className={classes.leftPhoto}/> 
-                <h1 className={classes.leftText}>The Programmer</h1>
+                <Typography variant="h2" className={classes.leftText}>The Programmer</Typography>
             </Grid>
         </Grid>
     )
