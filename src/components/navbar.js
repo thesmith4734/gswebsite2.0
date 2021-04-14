@@ -8,7 +8,8 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import SettingsIcon from '@material-ui/icons/Settings';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link'
 
 
 
@@ -20,12 +21,18 @@ const useStyles = makeStyles((theme) => ({
     divider: {
         background: theme.palette.primary.main
     },
-    settings: {
-        marginLeft: 0
-    },
     button: {
         width: '100%',
         height: '100%'
+    },
+    navStyle: {
+        textDecoration: 'none'
+    },
+    navIcon: {
+        color: theme.palette.text.primary
+    },
+    openBar: {
+        flexGrow: 1,
     }
 }));
 
@@ -37,14 +44,6 @@ export default function Introduction() {
         history.push('/');
     }
 
-    const handleProg = () => {
-        history.push('/the_programmer');
-    }
-
-    const handleVoice = () => {
-        console.log('Not Implemented')
-    }
-
     const handleSettings = () => {
         console.log('Not Implemented');
     }
@@ -54,25 +53,18 @@ export default function Introduction() {
             <AppBar color="secondary">
                 <Toolbar color="secondary">
                     <IconButton onClick={ handleHome }>
-                        <HomeIcon color="inherit" />
+                        <HomeIcon className={ classes.navIcon } />
                     </IconButton>
                     <Divider orientation="vertical" variant="middle" flexItem className={classes.divider}/>
-                    <ButtonBase onClick={ handleProg }>
-                        <Typography variant="h8" className={classes.title}>
-                            The Programmer
-                        </Typography>
-                    </ButtonBase>
+                    <Link component={RouterLink} to="the_programmer" variant="h" color="inherit">The Programmer</Link>
                     <Divider orientation="vertical" variant="middle" flexItem className={classes.divider}/>
-                    <ButtonBase onClick={ handleVoice }>
-                        <Typography variant="h8" className={classes.title} onClick={ handleVoice }>
-                            The Voice Actor
-                        </Typography>
-                    </ButtonBase>
+                    <Link component={RouterLink} to="the_programmer" variant="h" color="inherit">The Voice Actor</Link>
+                    <Divider orientation="vertical" variant="middle" flexItem className={classes.divider}/> 
+                    <div className={ classes.openBar } />
                     <Divider orientation="vertical" variant="middle" flexItem className={classes.divider}/>
                     <IconButton className={classes.settings} onClick={ handleSettings }>
-                        <SettingsIcon color="inherit" />
+                        <SettingsIcon className={ classes.navIcon } />
                     </IconButton>
-                    <Divider orientation="vertical" variant="middle" flexItem className={classes.divider}/>
                 </Toolbar>
             </AppBar>
         </div>
