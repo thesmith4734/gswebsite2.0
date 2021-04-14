@@ -12,7 +12,7 @@ import test2 from '../assets/carouseltest1.png';
 
 const useStyles = makeStyles((theme) => ({
     background: {
-        height: '550px',
+        height: '600px',
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
@@ -27,24 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const items = [
-    {
-        title: "Test1",
-        description: "describes test 1.",
-        image: `${test1}`
-    },
-    {
-        title: "Test2",
-        description: "describes test 2.",
-        image: `${test2}`
-    },
-    {
-        title: "Test3",
-        description: "describes test 3.",
-        image: "https://source.unsplash.com/featured/?nature"
-    }
-]
-
 export default function ProjectCarousel(props) {
     const classes = useStyles();
     return (
@@ -54,7 +36,7 @@ export default function ProjectCarousel(props) {
             autoPlay={false}
             >
             { 
-                items.map((item, index) => {
+                props.items.map((item, index) => {
                     return <Project item={item} key={index} />
                 })
             }
